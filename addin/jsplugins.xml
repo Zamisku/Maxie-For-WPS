@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  加载项注册清单。WPS 通过它发现并加载本加载项。
+  type=wps：作用于 WPS 文字。
+
+  开发期 url 指向 Vite dev server（http://localhost:5173/）。
+  生产期应改为打包后静态资源地址（同源或 CDN），见 publish.xml / 阶段 5。
+
+  [人工] 不同 wpsjs / WPS 版本对该清单的字段与放置位置要求不同，
+  需用本机版本核对（含是否需手动放入 WPS 配置目录或经 wpsjs debug 注入）。
+-->
+<jsplugins>
+  <jsplugin name="maxie"
+            type="wps"
+            url="http://localhost:5173/" />
+</jsplugins>

@@ -1,0 +1,182 @@
+/* 朴素紧凑样式，适配窄任务窗格（约 300–360px 宽）。 */
+
+:root {
+  --bg: #ffffff;
+  --fg: #1f2329;
+  --muted: #8a8f99;
+  --border: #e5e6eb;
+  --accent: #2b5cff;
+  --accent-fg: #ffffff;
+  --user-bg: #eef3ff;
+  --assistant-bg: #f5f6f8;
+  --danger: #d4380d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app__header {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  font-weight: 600;
+}
+
+.app__header small {
+  display: block;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.messages {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.messages__empty {
+  color: var(--muted);
+  text-align: center;
+  margin-top: 24px;
+}
+
+.msg {
+  border-radius: 8px;
+  padding: 6px 8px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.45;
+}
+
+.msg--user {
+  background: var(--user-bg);
+  align-self: flex-end;
+  max-width: 92%;
+}
+
+.msg--assistant {
+  background: var(--assistant-bg);
+  align-self: flex-start;
+  max-width: 96%;
+}
+
+.msg__role {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+
+.msg__actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.composer {
+  border-top: 1px solid var(--border);
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.composer__row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.composer__selection {
+  font-size: 11px;
+  color: var(--muted);
+  max-height: 48px;
+  overflow-y: auto;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  padding: 4px 6px;
+}
+
+textarea,
+select,
+input {
+  font: inherit;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 6px;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 44px;
+  width: 100%;
+}
+
+select {
+  flex: 0 0 auto;
+}
+
+button {
+  font: inherit;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 10px;
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button.btn--primary {
+  background: var(--accent);
+  color: var(--accent-fg);
+  border-color: var(--accent);
+}
+
+button.btn--danger {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+button.btn--small {
+  padding: 3px 8px;
+  font-size: 12px;
+}
+
+.error-bar {
+  color: var(--danger);
+  font-size: 12px;
+  padding: 4px 10px;
+}
